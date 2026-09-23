@@ -1,44 +1,145 @@
-# Pure Status HD updater
+<div align="center">
 
-This repository is the public update channel for **Pure Status HD**. The
-Android app checks `pure-status.json` on the splash screen and opens its
-bundled updater when `version_code` is newer than the installed build.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=Pure%20Status%20HD%20Updater%20Panel&fontSize=40&fontColor=ffffff&fontAlignY=38&desc=APK%20Update%20Manifest%20%E2%80%94%20Live%20OTA%20Control&descAlignY=58&descSize=16&animation=fadeIn" width="100%"/>
 
-## Files
+<br/>
 
-- `pure-status.json` — the update manifest consumed by the Android app.
-- `index.html` — the current Munowatch-derived Pure Status updater preview for
-  the public update channel.
-- `RELEASE.md` — the release procedure and manifest contract.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=A78BFA&center=true&vCenter=true&width=600&lines=Live+OTA+Update+Manifest;Force+Update+Support;Version+Control+%26+Changelog;Lightweight+JSON+Powered)](https://git.io/typing-svg)
 
-The Android app keeps its runtime updater page in
-`app/src/main/assets/pure_status_update.html`; it does not download HTML from
-this repository. The repository's `index.html` is the single web preview, so
-there is no duplicate updater HTML file in the update channel.
+<br/>
 
-## Important release asset
+![Version](https://img.shields.io/badge/Version-0.3.9-blueviolet?style=for-the-badge&logo=android&logoColor=white)
+![Version Code](https://img.shields.io/badge/Version_Code-39-7c3aed?style=for-the-badge&logo=github&logoColor=white)
+![Force Update](https://img.shields.io/badge/Force_Update-Disabled-ef4444?style=for-the-badge&logo=shield&logoColor=white)
+![Size](https://img.shields.io/badge/APK_Size-See_release_asset-10b981?style=for-the-badge&logo=files&logoColor=white)
 
-The manifest points to this stable URL:
+</div>
 
-```text
-https://github.com/Matrix1999/Pure_status_updater/releases/latest/download/pure-status-hd.apk
+---
+
+<div align="center">
+
+## ⚡ What is this?
+
+</div>
+
+This repository acts as the **live update manifest** for the **Pure Status HD** Android app.
+When the app launches, it fetches `pure-status.json` from this repo to check for updates — no backend server required.
+
+```
+App Launch → fetch pure-status.json → compare version_code → prompt / force update
 ```
 
-Every published release must include an APK asset with the exact filename
-`pure-status-hd.apk`. GitHub's `latest` release redirect keeps the URL stable
-when a newer release is published.
+---
 
-## Quick release checklist
+<div align="center">
 
-1. Build a signed release APK for `com.purestatus.hd`.
-2. Confirm its `versionCode` is greater than the previous manifest value.
-3. Create a GitHub release in this repository.
-4. Upload the APK as `pure-status-hd.apk`.
-5. Update `pure-status.json` with the new version, changelog, size, and release
-   date.
-6. Commit and push the manifest. The app will see the update on its next
-   splash check.
+## 📦 Current Release
 
-Do not publish a manifest that refers to an APK which has not already been
-uploaded. The app validates the remote version and URL but does not verify a
-release asset before showing the update dialog.
+</div>
+
+<div align="center">
+
+| Field | Value |
+|-------|-------|
+| 🏷️ Version Name | `1.9` |
+| 🔢 Version Code | `12` |
+| 📱 APK Size | `8.3 MB` |
+| 🚨 Force Update | `true` |
+| 🔗 Download | [Pure Status HD.VIP.apk](https://github.com/Matrix1999/munowatch-updater-panel/releases/download/pure-status-current/Pure Status HD.VIP.apk) |
+
+</div>
+
+---
+
+<div align="center">
+
+## 🗂️ Manifest Structure
+
+</div>
+
+```json
+{
+  "version_code": 39,
+  "version_name": "0.3.9",
+  "apk_url": "https://github.com/Matrix1999/.../Pure Status HD.VIP.apk",
+  "changelog": "Security improvements\nBug fixes and stability updates",
+  "update_size": "See release asset",
+  "force_update": false
+}
+```
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `version_code` | `int` | Integer incremented on every release — app compares this to installed build |
+| `version_name` | `string` | Human-readable version shown in the update dialog |
+| `apk_url` | `string` | Direct download link to the APK in GitHub Releases |
+| `changelog` | `string` | Release notes shown before updating (`\n` for line breaks) |
+| `update_size` | `string` | Displayed APK size — informational only |
+| `force_update` | `bool` | `true` → user cannot dismiss the dialog and must update to continue |
+
+---
+
+<div align="center">
+
+## 🔄 How to Push a New Release
+
+</div>
+
+**Step 1 — Upload the new APK to GitHub Releases**
+
+Create a new release tag (e.g. `pure-status-next`) and attach the signed APK file.
+
+**Step 2 — Update `pure-status.json`**
+
+```json
+{
+  "version_code": 13,
+  "version_name": "2.0",
+  "apk_url": "https://github.com/Matrix1999/munowatch-updater-panel/releases/download/pure-status-next/Pure Status HD.VIP.apk",
+  "changelog": "Pure Status HD stability and media-processing improvements",
+  "update_size": "8.5 MB",
+  "force_update": false
+}
+```
+
+> ⚠️ Always increment `version_code` — the app uses this integer to decide whether to prompt.
+> If `force_update` is `true`, the user **cannot** skip the update.
+
+**Step 3 — Commit and push**
+
+```bash
+git add pure-status.json
+git commit -m "chore: publish the next Pure Status HD release"
+git push
+```
+
+The app picks up the change on next launch automatically.
+
+---
+
+<div align="center">
+
+## 🛡️ Force Update Behaviour
+
+</div>
+
+```
+force_update: false   →   Update dialog shown, user can dismiss and continue
+force_update: true    →   Blocking dialog shown, app is unusable until updated
+```
+
+Use `force_update: true` whenever the update contains:
+- Security patches
+- Server API changes that break older clients
+- Certificate or signing changes
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:24243e,50:302b63,100:0f0c29&height=120&section=footer&animation=fadeIn" width="100%"/>
+
+*Pure Status HD — Update Panel*
+
+</div>
