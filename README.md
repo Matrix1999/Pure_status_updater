@@ -1,16 +1,20 @@
 # Pure Status HD updater
 
 This repository is the public update channel for **Pure Status HD**. The
-Android app checks `pure-status.json` on every splash screen and opens its
-native updater when `version_code` is newer than the installed build.
+Android app checks `pure-status.json` on the splash screen and opens its
+bundled updater when `version_code` is newer than the installed build.
 
 ## Files
 
 - `pure-status.json` — the update manifest consumed by the Android app.
-- `pure_status_update.html` — the Pure Status HD updater page adapted from the
-  Munowatch flow. It is also included in the Android app's assets.
-- `index.html` — a small browser preview of the updater page.
+- `index.html` — the current Munowatch-derived Pure Status updater preview for
+  the public update channel.
 - `RELEASE.md` — the release procedure and manifest contract.
+
+The Android app keeps its runtime updater page in
+`app/src/main/assets/pure_status_update.html`; it does not download HTML from
+this repository. The repository's `index.html` is the single web preview, so
+there is no duplicate updater HTML file in the update channel.
 
 ## Important release asset
 
