@@ -42,11 +42,11 @@ App Launch → fetch pure-status.json → compare version_code → prompt / forc
 
 | Field | Value |
 |-------|-------|
-| 🏷️ Version Name | `1.9` |
-| 🔢 Version Code | `12` |
-| 📱 APK Size | `8.3 MB` |
-| 🚨 Force Update | `true` |
-| 🔗 Download | [Pure Status HD.VIP.apk](https://github.com/Matrix1999/munowatch-updater-panel/releases/download/pure-status-current/Pure Status HD.VIP.apk) |
+| 🏷️ Version Name | `0.3.9` |
+| 🔢 Version Code | `39` |
+| 📱 APK Size | `See release asset` |
+| 🚨 Force Update | `false` |
+| 🔗 Download | [pure-status-hd.apk](https://github.com/Matrix1999/Pure_status_updater/releases/latest/download/pure-status-hd.apk) |
 
 </div>
 
@@ -62,8 +62,8 @@ App Launch → fetch pure-status.json → compare version_code → prompt / forc
 {
   "version_code": 39,
   "version_name": "0.3.9",
-  "apk_url": "https://github.com/Matrix1999/.../Pure Status HD.VIP.apk",
-  "changelog": "Security improvements\nBug fixes and stability updates",
+  "apk_url": "https://github.com/Matrix1999/Pure_status_updater/releases/latest/download/pure-status-hd.apk",
+  "changelog": "Pure Status HD updater flow and the latest media-processing improvements.",
   "update_size": "See release asset",
   "force_update": false
 }
@@ -94,11 +94,11 @@ Create a new release tag (e.g. `pure-status-next`) and attach the signed APK fil
 
 ```json
 {
-  "version_code": 13,
-  "version_name": "2.0",
-  "apk_url": "https://github.com/Matrix1999/munowatch-updater-panel/releases/download/pure-status-next/Pure Status HD.VIP.apk",
+  "version_code": 40,
+  "version_name": "0.4.0",
+  "apk_url": "https://github.com/Matrix1999/Pure_status_updater/releases/latest/download/pure-status-hd.apk",
   "changelog": "Pure Status HD stability and media-processing improvements",
-  "update_size": "8.5 MB",
+  "update_size": "See release asset",
   "force_update": false
 }
 ```
