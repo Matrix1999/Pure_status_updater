@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Pure Status HD Update</title>
+  <style>
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;min-height:100%;background:#070b09}
+    body{display:flex;align-items:center;justify-content:center;padding:20px;
+      color:#d7e8dd;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .grid{position:fixed;inset:0;pointer-events:none;opacity:.55;
+      background-image:linear-gradient(rgba(0,140,75,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,140,75,.07) 1px,transparent 1px);background-size:46px 46px}
+    .glow{position:fixed;width:520px;height:520px;border-radius:50%;top:-160px;left:50%;
+      transform:translateX(-50%);background:radial-gradient(circle,rgba(0,170,85,.17),transparent 70%);
+      animation:pulse 6s ease-in-out infinite}
+    .card{position:relative;z-index:1;width:100%;max-width:370px;padding:24px 22px 18px;
+      text-align:center;border:1px solid rgba(35,190,105,.25);border-radius:24px;
+      background:#0c1510;box-shadow:0 28px 80px rgba(0,0,0,.62);animation:rise .45s ease}
+    .mark{width:70px;height:70px;margin:0 auto 14px;border-radius:21px;display:flex;
+      align-items:center;justify-content:center;border:1px solid rgba(35,190,105,.45);
+      background:linear-gradient(135deg,rgba(0,140,75,.24),rgba(0,70,38,.15))}
+    .mark svg{width:37px;height:37px}
+    .label{font-size:10px;font-weight:800;letter-spacing:2.5px;color:#35c878;margin-bottom:7px}
+    h1{margin:0 0 8px;color:#f2fff6;font-size:21px;line-height:1.2}
+    .sub{margin:0 0 17px;color:#89a293;font-size:12.5px;line-height:1.6}
+    .badge{display:inline-flex;align-items:center;gap:6px;margin:0 auto 12px;padding:5px 12px;
+      border:1px solid rgba(35,190,105,.3);border-radius:20px;color:#35c878;font-size:10px;
+      font-weight:800;letter-spacing:.5px}
+    .dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+    .divider{display:flex;align-items:center;gap:9px;margin:0 0 13px}
+    .line{height:1px;flex:1;background:#21372a}
+    .divider span{color:#557061;font-size:9px;font-weight:800;letter-spacing:2px}
+    .info{margin-bottom:14px;padding:10px 13px;text-align:left;border:1px solid #20372a;
+      border-radius:12px;background:#101e16;color:#a8c4b2;font-size:13px;line-height:1.5;
+      white-space:pre-wrap;word-break:break-word}
+    .size{display:none;text-align:center}
+    .warning{display:none;margin-bottom:12px;padding:10px 13px;text-align:left;border-radius:12px;
+      border:1px solid rgba(255,170,70,.3);background:rgba(80,42,7,.35);color:#ffc477;
+      font-size:12px;line-height:1.5}
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:0 0 8px;
+      padding:13px;border:0;border-radius:13px;color:#fff;font:800 14px inherit;cursor:pointer}
+    .primary{background:linear-gradient(135deg,#08a45a,#00723e);box-shadow:0 4px 20px rgba(0,150,75,.25)}
+    .secondary{border:1px solid rgba(190,230,205,.12);background:rgba(255,255,255,.06);color:#a8b9ad}
+    .success{background:linear-gradient(135deg,#168a4d,#0b6335)}
+    .panel{display:none}.panel.active{display:block}
+    .pct{margin:8px 0 4px;color:#f2fff6;font-size:37px;font-weight:800}
+    .track{height:6px;margin:8px 0 6px;overflow:hidden;border-radius:4px;background:#20372a}
+    .fill{width:0;height:100%;border-radius:4px;background:linear-gradient(90deg,#08a45a,#58e497);
+      transition:width .35s ease}
+    .mb{margin:0 0 8px;color:#789687;font-size:12px}
+    .footer{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:14px;
+      padding-top:12px;border-top:1px solid #14251b;color:#557061;font-size:10px;
+      font-weight:700;letter-spacing:1px;text-transform:uppercase}
+    .footer i{width:6px;height:6px;border-radius:50%;background:#35c878;animation:blink 1.4s ease-in-out infinite}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    @keyframes pulse{50%{opacity:.8;transform:translateX(-50%) scale(1.12)}}
+    @keyframes blink{50%{opacity:.2;transform:scale(.65)}}
+  </style>
+</head>
+<body>
+  <div class="grid"></div><div class="glow"></div>
+  <main class="card">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#35c878" stroke-width="1.7"
+      stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5.8V11c0 5.3 3.5 10.2 8 11.5C16.5 21.2 20 16.3 20 11V5.8L12 2Z"/>
+      <path d="m8 12 2.5 2.5L16 9"/></svg></div>
+    <div class="label">PURE STATUS HD</div>
+    <section class="panel active" id="p0">
+      <div class="badge"><i class="dot"></i> UPDATE AVAILABLE</div>
+      <h1 id="tvVersion">Loading...</h1>
+      <p class="sub">A new Pure Status HD version is ready. Download it for the latest fixes and features.</p>
+      <div id="clSection"><div class="divider"><div class="line"></div><span>WHAT'S NEW</span><div class="line"></div></div>
+        <div class="info" id="tvChangelog">Loading changelog...</div></div>
+      <div class="size" id="sizeRow"><div class="divider"><div class="line"></div><span>UPDATE SIZE</span><div class="line"></div></div>
+        <div class="info" id="tvSize"></div></div>
+      <div class="warning" id="forceWarn">⚠ This update is required to continue using Pure Status HD.</div>
+      <button class="btn primary" onclick="PureStatusBridge.download()">⇩ &nbsp; Download Update</button>
+      <button class="btn secondary" id="btnLater" onclick="PureStatusBridge.dismiss()">Later</button>
+    </section>
+    <section class="panel" id="p1">
+      <h1>Downloading…</h1><p class="sub">Saving the update to your Downloads folder.</p>
+      <div class="pct" id="tvPct">0%</div><div class="track"><div class="fill" id="progFill"></div></div>
+      <div class="mb" id="tvMb">Preparing download…</div>
+      <button class="btn secondary" onclick="PureStatusBridge.cancel()">Cancel</button>
+    </section>
+    <section class="panel" id="p2">
+      <div class="badge"><i class="dot"></i> DOWNLOAD COMPLETE</div><h1>Ready to Install</h1>
+      <p class="sub">Accept the Android system prompt to finish updating to <b id="tvVersionDone" style="color:#f2fff6">the new version</b>.</p>
+      <button class="btn success" onclick="PureStatusBridge.install()">✓ &nbsp; Install Update</button>
+      <button class="btn secondary" onclick="PureStatusBridge.dismiss()">Install Later</button>
+    </section>
+    <section class="panel" id="p3">
+      <div class="badge"><i class="dot"></i> PERMISSION REQUIRED</div><h1>Allow Installation</h1>
+      <p class="sub">Allow Pure Status HD to install updates in Android settings, then tap Retry.</p>
+      <button class="btn primary" onclick="PureStatusBridge.install()">↻ &nbsp; Retry Install</button>
+    </section>
+    <footer class="footer"><i></i><span>Pure Status updater</span><i style="animation-delay:.7s"></i></footer>
+  </main>
+  <script>
+    (function(){
+      function param(name){var s=location.search.slice(1).split('&');for(var i=0;i<s.length;i++){var p=s[i].indexOf('=');if(p<0)continue;if(decodeURIComponent(s[i].slice(0,p))===name)return decodeURIComponent(s[i].slice(p+1).replace(/\+/g,' '));}return'';}
+      window.showState=function(n){for(var i=0;i<4;i++){var p=document.getElementById('p'+i);if(p)p.className='panel'+(i===n?' active':'');}};
+      window.updateProgress=function(p,soFar,total){var f=document.getElementById('progFill'),pct=document.getElementById('tvPct'),mb=document.getElementById('tvMb');if(f)f.style.width=p+'%';if(pct)pct.textContent=p+'%';if(mb)mb.textContent='Downloading '+parseFloat(soFar).toFixed(1)+' / '+parseFloat(total).toFixed(1)+' MB';};
+      function init(){var v=param('ver'),cl=param('cl'),sz=param('sz'),force=param('force')==='true';document.getElementById('tvVersion').textContent=v?'v'+v:'Update Available';document.getElementById('tvVersionDone').textContent=v?'v'+v:'the new version';if(cl)document.getElementById('tvChangelog').textContent=cl;else document.getElementById('clSection').style.display='none';if(sz){document.getElementById('sizeRow').style.display='block';document.getElementById('tvSize').textContent=sz;}if(force){document.getElementById('forceWarn').style.display='block';document.getElementById('btnLater').style.display='none';}}
+      if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+    })();
+  </script>
+</body>
+</html>
