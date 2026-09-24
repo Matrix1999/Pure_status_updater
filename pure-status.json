@@ -1,7 +1,7 @@
 {
-  "version_code": 42,
-  "version_name": "0.4.2",
-  "apk_url": "https://github.com/Matrix1999/Pure_status_updater/releases/download/V2.2/Pure_Status_HD_release.apk",
+  "version_code": 43,
+  "version_name": "0.4.3",
+  "apk_url": "https://github.com/Matrix1999/Pure_status_updater/releases/download/V2/Pure_Status_HD_release.apk",
   "changelog": "Pure Status HD updater flow and the latest media-processing improvements.",
   "update_size": "See release asset",
   "force_update": true,
